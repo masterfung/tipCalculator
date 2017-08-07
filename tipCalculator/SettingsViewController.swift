@@ -12,11 +12,15 @@ class SettingsViewController: UIViewController {
     let defaultKeyStore: UserDefaults? = UserDefaults.standard
     
     @IBOutlet weak var tipSelector: UISegmentedControl!
+    let tipPercentages = [0.1, 0.15, 0.18, 0.2]
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        // Sets the default index selection of the Segmented Controller
+        let indexOfDefaultSelection = tipPercentages.index(of: defaultKeyStore?.object(forKey: "selection") as! Double)
+        tipSelector.selectedSegmentIndex = indexOfDefaultSelection!
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,14 +40,9 @@ class SettingsViewController: UIViewController {
     */
     
     @IBAction func selectTipAmount(_ sender: Any) {
-        let tipPercentage = [0.1, 0.15, 0.18, 0.2]
-        let indexOfDefaultSelection = tipPercentage.index(of: defaultKeyStore?.object(forKey: "selection") as! Double)
         
-        defaultKeyStore?.set(tipPercentage[tipSelector.selectedSegmentIndex], forKey: "selection")
-        defaultKeyStore?.set(123, forKey: "another_key_that_you_choose")
+        defaultKeyStore?.set(tipPercentages[tipSelector.selectedSegmentIndex], forKey: "selection")
         defaultKeyStore?.synchronize()
-        
-        tipSelector.selectedSegmentIndex = indexOfDefaultSelection!
         
     }
 
