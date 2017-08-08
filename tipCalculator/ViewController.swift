@@ -76,7 +76,6 @@ class ViewController: UIViewController {
     @IBAction func tipCalculate(_ sender: Any) {
         let bill = Double(billAmount.text!) ?? 0
         let tip = calcTip(bill: bill)
-        print(tip)
         let total = bill + tip
         
         tipLabelAmount.text = String(format: "$%.2f", tip)
