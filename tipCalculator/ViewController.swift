@@ -17,10 +17,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var tipLabelAmount: UILabel!
     @IBOutlet weak var totalAmount: UILabel!
     @IBOutlet weak var tipSelector: UISegmentedControl!
+    @IBOutlet weak var settingsButton: UIBarButtonItem!
+    
+    @IBOutlet weak var onePersonSplit: UILabel!
+    @IBOutlet weak var twoPplSplit: UILabel!
+    @IBOutlet weak var threePplSplit: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
         
     }
 
@@ -80,6 +87,10 @@ class ViewController: UIViewController {
         
         tipLabelAmount.text = String(format: "$%.2f", tip)
         totalAmount.text = String(format: "$%.2f", total)
+        
+        onePersonSplit.text = String(format: "$%.2f", total)
+        twoPplSplit.text = String(format: "$%.2f", total/2)
+        threePplSplit.text = String(format: "$%.2f", total/3)
     }
 }
 
