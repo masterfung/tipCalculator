@@ -15,8 +15,8 @@ The following **required** functionality is complete:
 
 The following **optional** features are implemented:
 * [ ] UI animations
-* [ ] Remembering the bill amount across app restarts (if <10mins)
-* [ ] Using locale-specific currency and currency thousands separators.
+* [X] Remembering the bill amount across app restarts (if <10mins)
+* [X] Using locale-specific currency and currency thousands separators.
 * [X] Making sure the keyboard is always visible and the bill amount is always the first responder. This way the user doesn't have to tap anywhere to use this app. Just launch the app and start typing.
 
 The following **additional** features are implemented:
@@ -25,12 +25,19 @@ The following **additional** features are implemented:
 - [X] App Icons
 - [X] Used Open Sans for fonts instead of system default
 - [X] Tip split up to 3 people
+- [X] Font Awesome submodule system with gear icon for settings
 
 ## Video Walkthrough 
 
 Here's a walkthrough of implemented user stories:
 
 ![gif](https://github.com/masterfung/tipCalculator/blob/master/TsungHungTipCalculatorDemo.gif)
+
+An updated walkthrough with the optional and additional features added:
+
+![gif](https://github.com/masterfung/tipCalculator/blob/master/TTipCalc2.gif)
+
+TipCalc2.gif
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
