@@ -12,6 +12,9 @@ class SettingsViewController: UIViewController {
     let defaultKeyStore: UserDefaults? = UserDefaults.standard
     
     @IBOutlet weak var tipSelector: UISegmentedControl!
+    @IBOutlet weak var regionAndSymbolLabel: UILabel!
+    
+    
     let tipPercentages = [0.1, 0.15, 0.18, 0.2]
 
     override func viewDidLoad() {
@@ -21,6 +24,14 @@ class SettingsViewController: UIViewController {
         // Sets the default index selection of the Segmented Controller
         let indexOfDefaultSelection = tipPercentages.index(of: defaultKeyStore?.object(forKey: "selection") as! Double)
         tipSelector.selectedSegmentIndex = indexOfDefaultSelection!
+        
+        let locale = Locale.current
+        let currencySymbol = locale.currencySymbol!
+        let currencyCode = locale.currencyCode!
+        
+        regionAndSymbolLabel.text = String(format: "%@ | %@", currencySymbol, currencyCode)
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

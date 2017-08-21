@@ -9,6 +9,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
+        </array>
         <array key="OpenSans-ExtraBold.ttf">
             <string>OpenSans-Extrabold</string>
         </array>
@@ -49,8 +52,8 @@
                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                         <connections>
+                                            <action selector="calculateBillsAndReturnsTotal:" destination="BYZ-38-t0r" eventType="editingChanged" id="gwZ-XQ-rAc"/>
                                             <action selector="onTap:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="QvX-Mj-CSG"/>
-                                            <action selector="tipCalculate:" destination="BYZ-38-t0r" eventType="editingChanged" id="QPq-On-M94"/>
                                         </connections>
                                     </textField>
                                 </subviews>
@@ -175,8 +178,8 @@
                                 </segments>
                                 <color key="tintColor" red="1" green="0.0" blue="0.13972080801548969" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
+                                    <action selector="calculateBillsAndReturnsTotal:" destination="BYZ-38-t0r" eventType="valueChanged" id="nUF-J3-5Ac"/>
                                     <action selector="selectTipAmount:" destination="5N1-fM-5Lb" eventType="valueChanged" id="ufT-c4-9eI"/>
-                                    <action selector="tipCalculate:" destination="BYZ-38-t0r" eventType="valueChanged" id="T6r-xN-seh"/>
                                 </connections>
                             </segmentedControl>
                         </subviews>
@@ -238,14 +241,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Default Tip Selection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFD-QK-soB">
-                                <rect key="frame" x="16" y="83" width="159" height="21"/>
+                                <rect key="frame" x="16" y="83" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Region &amp; Symbol" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6l4-sX-ZcI">
+                                <rect key="frame" x="16" y="180" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oRZ-8f-FXD">
+                                <rect key="frame" x="16" y="222" width="343" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="KrS-nm-PIf">
-                                <rect key="frame" x="16" y="121" width="343" height="29"/>
+                                <rect key="frame" x="16" y="125" width="343" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="10%"/>
@@ -255,7 +272,6 @@
                                 </segments>
                                 <connections>
                                     <action selector="selectTipAmount:" destination="5N1-fM-5Lb" eventType="valueChanged" id="CuS-25-UNq"/>
-                                    <action selector="tipCalculate:" destination="BYZ-38-t0r" eventType="valueChanged" id="ZFp-mq-QeK"/>
                                 </connections>
                             </segmentedControl>
                         </subviews>
@@ -267,6 +283,7 @@
                     <navigationItem key="navigationItem" id="iQb-Pc-5jv"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="regionAndSymbolLabel" destination="oRZ-8f-FXD" id="h0P-na-B8m"/>
                         <outlet property="tipSelector" destination="KrS-nm-PIf" id="sE5-SM-TT2"/>
                     </connections>
                 </viewController>

@@ -24,6 +24,21 @@ class ViewController: UIViewController {
     @IBOutlet weak var twoPplSplit: UILabel!
     @IBOutlet weak var threePplSplit: UILabel!
     
+    var billTotal: Double {
+        if let total = self.defaultKeyStore.object(forKey: "billTotal") as? Double {
+            return total
+        }
+        return 0
+    }
+    
+    var tip: Double {
+        return self.calcTip(bill: self.billTotal)
+    }
+    
+    var billPlusTip: Double {
+        return self.billTotal + self.tip
+    }
+    
     private lazy var numberFormatter: NumberFormatter = NumberFormatter()
     
     
@@ -32,6 +47,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         self.numberFormatter.numberStyle = .currency
         
+        // Sets the gear icon
         let image = UIImage.fontAwesomeIcon(name: .cog, textColor: UIColor.black, size: CGSize(width: 30, height: 30))
         self.settingsButton.setImage(image, for: .normal)
         self.settingsButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 50, bottom: 0, right: 0)
@@ -54,7 +70,11 @@ class ViewController: UIViewController {
         let indexOfDefaultSelection = tipPercentages.index(of: defaultKeyStore.object(forKey: "selection") as! Double)
         tipSelector.selectedSegmentIndex = indexOfDefaultSelection!
         
-        tipCalculate(self)
+        // Re-cal tip based on seg-ui change
+        self.updateUI()
+        self.billAmount.text = String(format: "%.2f", self.billTotal)
+        
+        // Opens the keyboard on load
         billAmount.becomeFirstResponder()
     }
     
@@ -86,17 +106,23 @@ class ViewController: UIViewController {
         view.endEditing(true)
     }
 
-    @IBAction func tipCalculate(_ sender: Any) {
+    @IBAction func calculateBillsAndReturnsTotal(_ sender: Any) {
         let bill = Double(billAmount.text!) ?? 0
-        let tip = calcTip(bill: bill)
-        let total = bill + tip
         
-        let twoPeople = total / 2
-        let threePeople = total / 3
-
-        tipLabelAmount.text = self.formattedCurrencyString(number: tip)
-        totalAmount.text    = self.formattedCurrencyString(number: total)
-        onePersonSplit.text = self.formattedCurrencyString(number: total)
+        defaultKeyStore.set(bill, forKey: "billTotal")
+        defaultKeyStore.synchronize()
+        
+        self.updateUI()
+    }
+    
+    private func updateUI() {
+        let netTotal = self.billPlusTip
+        let twoPeople = netTotal / 2
+        let threePeople = netTotal / 3
+        
+        tipLabelAmount.text = self.formattedCurrencyString(number: self.tip)
+        totalAmount.text    = self.formattedCurrencyString(number: netTotal)
+        onePersonSplit.text = self.formattedCurrencyString(number: netTotal)
         twoPplSplit.text    = self.formattedCurrencyString(number: twoPeople)
         threePplSplit.text  = self.formattedCurrencyString(number: threePeople)
     }
