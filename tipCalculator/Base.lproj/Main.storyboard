@@ -188,10 +188,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Tip Calculator" id="AMA-yf-vfK">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="YCP-ZE-5go">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3Ra-K9-RF0">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3Ra-K9-RF0">
                                 <rect key="frame" x="276" y="7" width="83" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Settings"/>
                                 <connections>
                                     <segue destination="5N1-fM-5Lb" kind="push" id="gKt-RR-leW"/>
                                 </connections>
@@ -201,7 +200,7 @@
                     <connections>
                         <outlet property="billAmount" destination="3wk-B8-6Ww" id="o7v-pc-5i8"/>
                         <outlet property="onePersonSplit" destination="0nZ-cZ-VkN" id="5xN-B0-fOQ"/>
-                        <outlet property="settingsButton" destination="YCP-ZE-5go" id="jk6-Li-ja6"/>
+                        <outlet property="settingsButton" destination="3Ra-K9-RF0" id="oq1-bo-7p3"/>
                         <outlet property="threePplSplit" destination="Abb-c5-lxd" id="uS0-Wp-thD"/>
                         <outlet property="tipLabelAmount" destination="JwY-20-8T2" id="5TW-hI-Mgs"/>
                         <outlet property="tipSelector" destination="v6A-VI-7kP" id="u20-33-utN"/>
@@ -280,7 +279,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OPF-py-CDl" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lZJ-w2-CIM">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="lZJ-w2-CIM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
