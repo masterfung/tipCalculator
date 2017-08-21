@@ -37,8 +37,6 @@ An updated walkthrough with the optional and additional features added:
 
 ![gif](https://github.com/masterfung/tipCalculator/blob/master/TipCalc2.gif)
 
-TipCalc2.gif
-
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Project Analysis
