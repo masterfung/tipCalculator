@@ -35,7 +35,7 @@ Here's a walkthrough of implemented user stories:
 
 An updated walkthrough with the optional and additional features added:
 
-![gif](https://github.com/masterfung/tipCalculator/blob/master/TTipCalc2.gif)
+![gif](https://github.com/masterfung/tipCalculator/blob/master/TipCalc2.gif)
 
 TipCalc2.gif
 
